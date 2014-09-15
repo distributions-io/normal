@@ -23,6 +23,34 @@ describe( 'distributions-normal', function tests() {
 		expect( normal ).to.be.a( 'function' );
 	});
 
-	it( 'should do something' );
+	it( 'should provide a setter/getter for the distribution mean' );
+
+	it( 'should provide a setter/getter for the distribution variance' );
+
+	it( 'should provide a method to get the distribution median' );
+
+	it( 'should return a median value equal to the mean' );
+
+	it( 'should provide a method to get the distribution mode' );
+
+	it( 'should return a mode value equal to the mean' );
+
+	it( 'should provide a method to get the distribution skewness' );
+
+	it( 'should return a skewness equal to 0' );
+
+	it( 'should provide a method to get the distribution excess kurtosis' );
+
+	it( 'should return an excess kurtosis equal to 0' );
+
+	it( 'should provide a method to get the distribution entropy' );
+
+	it( 'should provide a method to get the distribution information' );
+
+	it( 'should provide a method to get/evaluate the distribution PDF' );
+
+	it( 'should provide a method to get/evaluate the distribution CDF' );
+
+	it( 'should provide a method to get/evaluate the distribution quantile function' );
 
 });
