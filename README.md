@@ -19,14 +19,177 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var normal = require( 'distributions-normal' );
+var createDist = require( 'distributions-normal' );
 ```
+
+To create a normal distribution,
+
+``` javascript
+var normal = createDist();
+```
+
+The distribution is configurable and has the following methods...
+
+
+#### normal.mean( [value] )
+
+This method is a setter/getter. If no `value` is provided, returns the distribution `mean`. To set the distribution `mean`,
+
+``` javascript
+normal.mean( 100 );
+```
+
+The default distribution mean is 0.
+
+
+#### normal.variance( [value] )
+
+This method is a setter/getter. If no `value` is provided, returns the distribution `variance`. To set the distribution `variance`,
+
+``` javascript
+normal.variance( 25 );
+```
+
+The default distribution variance is 1.
+
+
+#### normal.median()
+
+Returns the distribution `median`, which is equal to the distribution `mean`.
+
+``` javascript
+var median = normal.median();
+// equals normal.mean()
+```
+
+
+#### normal.mode()
+
+Returns the distribution `mode`, which is equal to the distribution `mean`.
+
+``` javascript
+var mode = normal.mode();
+// equals normal.mean()
+```
+
+
+#### normal.skewness()
+
+Returns the distribution `skewness`, which is equal to 0.
+
+``` javascript
+var skewness = normal.skewness();
+// Returns 0
+```
+
+#### normal.ekurtosis()
+
+Returns the distribution `excess kurtosis`, which is equal to 0.
+
+``` javascript
+var excess = normal.ekurtosis();
+// Returns 0
+```
+
+
+#### normal.information()
+
+Returns the [Fisher information](http://en.wikipedia.org/wiki/Fisher_information).
+
+``` javascript
+var info = normal.information();
+// Returns [...]
+```
+
+
+#### normal.entropy()
+
+Returns the distribution's [differential entropy](http://en.wikipedia.org/wiki/Differential_entropy).
+
+``` javascript
+var entropy = normal.entropy();
+// approx 1.42 for mu=0, variance=1
+```
+
+#### normal.pdf( [arr] )
+
+If a support vector is not provided, returns the probability density function (PDF). If a support vector is provided, evaluates the PDF for each vector element.
+
+``` javascript
+var data = [ -1, -0.5, 0, 0.5, 1 ];
+
+var pdf = normal.pdf( data );
+// Returns [...]
+```
+
+#### normal.cdf( [arr] )
+
+If a support vector is not provided, returns the cumulative density function (CDF). If a support vector is provided, evaluates the CDF for each vector element.
+
+``` javascript
+var data = [ -1, -0.5, 0, 0.5, 1 ];
+
+var cdf = normal.cdf( data );
+// Returns [...]
+```
+
+
+#### normal.quantile( prob )
+
+
+
+
+
 
 
 ## Examples
 
 ``` javascript
+var createDist = require( 'distributions-normal' ),
+	median = require( 'compute-median' ),
+	mean = require( 'compute-mean' );
 
+// Define the distribution parameters...
+var mu = 100,
+	s2 = 25,
+	xLow = 0,
+	xHigh = 200;
+
+// Create a support vector...
+var vec = new Array( 1000 ),
+	len = vec.length,
+	inc;
+
+inc = ( xHigh - xLow ) / len;
+
+for ( var i = 0; i < len; i++ ) {
+	vec[ i ] = inc * i;
+}
+
+// Create a normal distribution and configure...
+var normal = createDist()
+	.mean( mu )
+	.variance( s2 );
+
+// Evaluate the probability density function over the support vector...
+var pdf = normal.pdf( vec );
+
+// Find the max...
+var max = pdf[ 0 ],
+	idx = 0;
+for ( var j = 1; j < pdf.length; j++ ) {
+	if ( pdf[ j ] > max ) {
+		max = pdf[ j ];
+		idx = j;
+	}
+}
+console.log( 'Max: ' + vec[ idx ] );
+
+// Calculate the median...
+console.log( 'Median: ' + median( vec ) );
+
+// Calculate the mean...
+console.log( 'Mean: ' + mean( vec ) );
 ```
 
 To run the example code from the top-level application directory,
