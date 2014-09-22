@@ -79,7 +79,7 @@ Returns the distribution `skewness`, which is equal to 0.
 
 ``` javascript
 var skewness = normal.skewness();
-// Returns 0
+// returns 0
 ```
 
 #### normal.ekurtosis()
@@ -88,7 +88,7 @@ Returns the distribution `excess kurtosis`, which is equal to 0.
 
 ``` javascript
 var excess = normal.ekurtosis();
-// Returns 0
+// returns 0
 ```
 
 
@@ -98,7 +98,7 @@ Returns the [Fisher information](http://en.wikipedia.org/wiki/Fisher_information
 
 ``` javascript
 var info = normal.information();
-// Returns [...]
+// returns [...]
 ```
 
 
@@ -119,7 +119,7 @@ If a support vector is not provided, returns the probability density function (P
 var data = [ -1, -0.5, 0, 0.5, 1 ];
 
 var pdf = normal.pdf( data );
-// Returns [...]
+// returns [...]
 ```
 
 #### normal.cdf( [arr] )
@@ -130,14 +130,22 @@ If a support vector is not provided, returns the cumulative density function (CD
 var data = [ -1, -0.5, 0, 0.5, 1 ];
 
 var cdf = normal.cdf( data );
-// Returns [...]
+// returns [...]
 ```
 
 
-#### normal.quantile( prob )
+#### normal.quantile( [arr] )
 
+If a cumulative probability vector is not provided, returns a quantile function. If a cumulative probability vector is provided, evaluates the quantile function for each vector element.
 
+``` javascript
+var probs = [ 0.025, 0.5, 0.975 ];
 
+var quantiles = normal.quantiles( probs );
+// returns [...]
+``` 
+
+Note: all vector values must exist on the interval `[0, 1]`.
 
 
 

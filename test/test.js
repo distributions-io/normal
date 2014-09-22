@@ -222,6 +222,29 @@ describe( 'distributions-normal', function tests() {
 			}
 		});
 
+		it( 'should throw an error if array contains non-numeric values', function test() {
+			var values = [
+					[],
+					'5',
+					true,
+					undefined,
+					null,
+					NaN,
+					{},
+					function(){}
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( TypeError );
+			}
+
+			function badValue( value ) {
+				return function() {
+					normal.pdf( [value] );
+				};
+			}
+		});
+
 		it( 'should evaluate the pdf', function test() {
 			var data = [ -1, 0, 1 ];
 			assert.isArray( normal.pdf( data ) );
@@ -258,6 +281,29 @@ describe( 'distributions-normal', function tests() {
 			function badValue( value ) {
 				return function() {
 					normal.cdf( value );
+				};
+			}
+		});
+
+		it( 'should throw an error if array contains non-numeric values', function test() {
+			var values = [
+					[],
+					'5',
+					true,
+					undefined,
+					null,
+					NaN,
+					{},
+					function(){}
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( TypeError );
+			}
+
+			function badValue( value ) {
+				return function() {
+					normal.cdf( [value] );
 				};
 			}
 		});
@@ -300,6 +346,41 @@ describe( 'distributions-normal', function tests() {
 			function badValue( value ) {
 				return function() {
 					normal.quantile( value );
+				};
+			}
+		});
+
+		it( 'should throw an error if array contains non-numeric values', function test() {
+			var values = [
+					[],
+					'5',
+					true,
+					undefined,
+					null,
+					NaN,
+					{},
+					function(){}
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( TypeError );
+			}
+
+			function badValue( value ) {
+				return function() {
+					normal.quantile( [value] );
+				};
+			}
+		});
+
+		it( 'should throw an error if array contains numeric values not on the interval [0,1]', function test() {
+			var values = [ -0.01, 1.01 ];
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( Error );
+			}
+			function badValue( value ) {
+				return function() {
+					normal.quantile( [value] );
 				};
 			}
 		});
