@@ -35,7 +35,10 @@
   "bugs": {
     "url": "https://github.com/distributions-io/normal/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "compute-erf": "^1.1.0",
+    "compute-erfinv": "^1.0.1"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "compute-mean": "^1.0.1",

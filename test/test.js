@@ -235,9 +235,9 @@ describe( 'distributions-normal', function tests() {
 			expect( normal.cdf ).to.be.a( 'function' );
 		});
 
-		// it( 'should return a function', function test() {
-		// 	expect( normal.cdf() ).to.be.a( 'function' );
-		// });
+		it( 'should return a function', function test() {
+			expect( normal.cdf() ).to.be.a( 'function' );
+		});
 
 		it( 'should throw an error if not provided an array', function test() {
 			var values = [
@@ -262,10 +262,12 @@ describe( 'distributions-normal', function tests() {
 			}
 		});
 
-		// it( 'should evaluate the cdf', function test() {
-		// 	var data = [ -1, 0, 1 ];
-		// 	assert.isArray( normal.cdf( data ) );
-		// });
+		it( 'should evaluate the cdf', function test() {
+			var data = [ -1, 0, 1 ],
+				res = normal.cdf( data );
+			assert.isArray( res );
+			assert.strictEqual( res[1], 0.5 );
+		});
 
 	}); // end TESTS cdf
 

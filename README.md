@@ -39,7 +39,7 @@ This method is a setter/getter. If no `value` is provided, returns the distribut
 normal.mean( 100 );
 ```
 
-The default distribution mean is 0.
+The default distribution `mean` is 0.
 
 
 #### normal.variance( [value] )
@@ -50,7 +50,7 @@ This method is a setter/getter. If no `value` is provided, returns the distribut
 normal.variance( 25 );
 ```
 
-The default distribution variance is 1.
+The default distribution `variance` is 1.
 
 
 #### normal.median()
