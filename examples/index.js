@@ -8,7 +8,7 @@ var mu = 100,
 	xLow = 0,
 	xHigh = 200;
 
-// Create a support vector...
+// Create a vector...
 var vec = new Array( 1000 ),
 	len = vec.length,
 	inc;
@@ -24,7 +24,7 @@ var normal = createDist()
 	.mean( mu )
 	.variance( s2 );
 
-// Evaluate the probability density function over the support vector...
+// Evaluate the probability density function over the vector...
 var pdf = normal.pdf( vec );
 
 // Find the max...

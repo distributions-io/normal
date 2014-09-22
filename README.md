@@ -31,6 +31,16 @@ var normal = createDist();
 The distribution is configurable and has the following methods...
 
 
+#### normal.support()
+
+Returns the distribution support, which is the set of all real values.
+
+``` javascript
+normal.support();
+// returns [-inf, inf]
+```
+
+
 #### normal.mean( [value] )
 
 This method is a setter/getter. If no `value` is provided, returns the distribution `mean`. To set the distribution `mean`,
@@ -113,7 +123,7 @@ var entropy = normal.entropy();
 
 #### normal.pdf( [arr] )
 
-If a support vector is not provided, returns the probability density function (PDF). If a support vector is provided, evaluates the PDF for each vector element.
+If a vector is not provided, returns the probability density function (PDF). If a vector is provided, evaluates the PDF for each vector element.
 
 ``` javascript
 var data = [ -1, -0.5, 0, 0.5, 1 ];
@@ -124,7 +134,7 @@ var pdf = normal.pdf( data );
 
 #### normal.cdf( [arr] )
 
-If a support vector is not provided, returns the cumulative density function (CDF). If a support vector is provided, evaluates the CDF for each vector element.
+If a vector is not provided, returns the cumulative density function (CDF). If a vector is provided, evaluates the CDF for each vector element.
 
 ``` javascript
 var data = [ -1, -0.5, 0, 0.5, 1 ];
@@ -163,7 +173,7 @@ var mu = 100,
 	xLow = 0,
 	xHigh = 200;
 
-// Create a support vector...
+// Create a vector...
 var vec = new Array( 1000 ),
 	len = vec.length,
 	inc;
@@ -179,7 +189,7 @@ var normal = createDist()
 	.mean( mu )
 	.variance( s2 );
 
-// Evaluate the probability density function over the support vector...
+// Evaluate the probability density function over the vector...
 var pdf = normal.pdf( vec );
 
 // Find the max...

@@ -34,6 +34,22 @@ describe( 'distributions-normal', function tests() {
 		expect( createDist ).to.be.a( 'function' );
 	});
 
+	describe( 'support', function tests() {
+
+		it( 'should provide a method to get the distribution support', function test() {
+			expect( normal.support ).to.be.a( 'function' );
+		});
+
+		it( 'should return a support equal to all real values', function test() {
+			var expected = [
+					Number.NEGATIVE_INFINITY,
+					Number.POSITIVE_INFINITY
+				];
+			assert.deepEqual( normal.support(), expected );
+		});
+
+	}); // end TESTS support
+
 	describe( 'mean', function tests() {
 
 		it( 'should provide a setter/getter for the distribution mean', function test() {
