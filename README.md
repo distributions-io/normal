@@ -198,6 +198,11 @@ console.log( 'Median: ' + median( vec ) );
 
 // Calculate the mean...
 console.log( 'Mean: ' + mean( vec ) );
+
+// Evaluate the quantile function for canonical cumulative probability values...
+var quantiles = normal.quantile( [ 0.025, 0.5, 0.975 ] );
+
+console.log( quantiles );
 ```
 
 To run the example code from the top-level application directory,
