@@ -273,38 +273,45 @@ describe( 'distributions-normal', function tests() {
 
 	describe( 'quantile', function test() {
 
-		it( 'should provide a method to get/evaluate the distribution quantile function' );
+		it( 'should provide a method to get/evaluate the distribution quantile function', function test() {
+			expect( normal.quantile ).to.be.a( 'function' );
+		});
 
-		// it( 'should return a function', function test() {
-		// 	expect( normal.quantile() ).to.be.a( 'function' );
-		// });
+		it( 'should return a function', function test() {
+			expect( normal.quantile() ).to.be.a( 'function' );
+		});
 
-		// it( 'should throw an error if not provided an array', function test() {
-		// 	var values = [
-		// 			5,
-		// 			'5',
-		// 			true,
-		// 			undefined,
-		// 			null,
-		// 			NaN,
-		// 			{},
-		// 			function(){}
-		// 		];
+		it( 'should throw an error if not provided an array', function test() {
+			var values = [
+					5,
+					'5',
+					true,
+					undefined,
+					null,
+					NaN,
+					{},
+					function(){}
+				];
 
-		// 	for ( var i = 0; i < values.length; i++ ) {
-		// 		expect( badValue( values[i] ) ).to.throw( TypeError );
-		// 	}
+			for ( var i = 0; i < values.length; i++ ) {
+				expect( badValue( values[i] ) ).to.throw( TypeError );
+			}
 
-		// 	function badValue( value ) {
-		// 		return function() {
-		// 			normal.quantile( value );
-		// 		};
-		// 	}
-		// });
+			function badValue( value ) {
+				return function() {
+					normal.quantile( value );
+				};
+			}
+		});
 
-		// it( 'should evaluate the quantile function', function test() {
-		// 	assert.isNumber( normal.quantile( 0.5 ) );
-		// });
+		it( 'should evaluate the quantile function', function test() {
+			var p = [ 0.025, 0.05, 0.159, 0.5, 0.841, 0.95, 0.975 ],
+				res = normal.quantile( p );
+			assert.isArray( res );
+			assert.strictEqual( res[3], 0 );
+			assert.closeTo( res[0], -1.959963984, 1e-7 );
+			assert.closeTo( res[6], 1.959963984, 1e-7 );
+		});
 
 	}); // end TESTS quantile
 
