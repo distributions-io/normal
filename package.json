@@ -26,9 +26,11 @@
     "distributions.io",
     "distributions",
     "probability",
-    "pdf",
     "statistics",
     "stats",
+    "pdf",
+    "cdf",
+    "quantiles",
     "normal",
     "gaussian"
   ],
