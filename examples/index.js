@@ -45,6 +45,6 @@ console.log( 'Median: ' + median( vec ) );
 console.log( 'Mean: ' + mean( vec ) );
 
 // Evaluate the quantile function for canonical cumulative probability values...
-var quantiles = normal.quantile( [ 0.025, 0.5, 0.975 ] );
+var quantiles = normal.inv( [ 0.025, 0.5, 0.975 ] );
 
 console.log( quantiles );

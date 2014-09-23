@@ -144,14 +144,14 @@ var cdf = normal.cdf( data );
 ```
 
 
-#### normal.quantile( [arr] )
+#### normal.inv( [arr] )
 
-If a cumulative probability vector is not provided, returns a quantile function. If a cumulative probability vector is provided, evaluates the quantile function for each vector element.
+If a cumulative probability vector is not provided, returns the inverse cumulative distribution function (aka the quantile function). If a cumulative probability vector is provided, evaluates the quantile function for each vector element.
 
 ``` javascript
 var probs = [ 0.025, 0.5, 0.975 ];
 
-var quantiles = normal.quantile( probs );
+var quantiles = normal.inv( probs );
 // returns [...]
 ``` 
 
@@ -210,7 +210,7 @@ console.log( 'Median: ' + median( vec ) );
 console.log( 'Mean: ' + mean( vec ) );
 
 // Evaluate the quantile function for canonical cumulative probability values...
-var quantiles = normal.quantile( [ 0.025, 0.5, 0.975 ] );
+var quantiles = normal.inv( [ 0.025, 0.5, 0.975 ] );
 
 console.log( quantiles );
 ```
