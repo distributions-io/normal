@@ -42,17 +42,14 @@
     "compute-erfinv": "^1.0.1"
   },
   "devDependencies": {
-    "chai": "1.x.x",
+    "chai": "3.x.x",
     "compute-mean": "^1.0.1",
     "compute-median": "^1.0.0",
     "coveralls": "^2.11.1",
     "istanbul": "^0.3.0",
-    "mocha": "1.x.x"
+    "mocha": "2.x.x",
+    "jshint": "2.x.x",
+    "jshint-stylish": "2.x.x"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ]
+  "license": "MIT"
 }

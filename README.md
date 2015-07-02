@@ -16,7 +16,6 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
 
 ``` javascript
 var createDist = require( 'distributions-normal' );
@@ -153,7 +152,7 @@ var probs = [ 0.025, 0.5, 0.975 ];
 
 var quantiles = normal.inv( probs );
 // returns [...]
-``` 
+```
 
 Note: all vector values must exist on the interval `[0, 1]`.
 
@@ -226,7 +225,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -250,15 +249,15 @@ $ open reports/coverage/lcov-report/index.html
 ```
 
 
+---
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
+Copyright &copy; 2014-2015. The [Distributions.io](https://github.com/distributions-io) Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/distributions-normal.svg
